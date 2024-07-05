@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "8f693ac7-142c-48c6-b68b-4473cf9b5d5e",
+		"name": "couch-crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36180587"
+	},
+	"item": [
+		{
+			"name": "add-product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": \"xperia-e3-dual\",\r\n  \"productName\": \"Sony Xperia E3 Dual\",\r\n  \"price\": 1299,\r\n  \"inStock\": true,\r\n  \"categories\": [\"Electronics\", \"Mobile\",\"Android\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/products",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products?page=1&limit=10&price[gte]=79.99&fields=productId, price",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "price[gte]",
+							"value": "79.99"
+						},
+						{
+							"key": "productName",
+							"value": "phone",
+							"disabled": true
+						},
+						{
+							"key": "fields",
+							"value": "productId, price"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-product-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/12345",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\": \"Smartphone\",\r\n    \"price\": 999.99,\r\n    \"inStock\": true,\r\n    \"categories\": [\r\n        \"Electronics\",\r\n        \"Mobile\",\r\n        \"Android\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/products/samsung-sm-15",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"samsung-sm-15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/12345",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health-check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/health-check",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}

@@ -1,10 +1,10 @@
 const express = require("express");
 
-const IndexRouter = require("./routes/index.route");
+const IndexRouter = require("../routes/index.route");
 const {
   NotFoundHandler,
   MainErrorHandler,
-} = require("./middlewares/error.middleware");
+} = require("../middlewares/error.middleware");
 
 const app = express();
 
@@ -18,6 +18,4 @@ app.use(IndexRouter);
 app.use(NotFoundHandler);
 app.use(MainErrorHandler);
 
-app.listen(8000, () => {
-  console.log("Server is up and running at 8000");
-});
+module.exports = app;

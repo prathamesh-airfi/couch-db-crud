@@ -9,4 +9,5 @@ exports.APP_CONFIG = cleanEnv(process.env, {
   DB_PORT: port({ devDefault: 5984, desc: "Database Port" }),
   DB_USER: str({ desc: "Database Username" }),
   DB_PASSWORD: str({ desc: "Database Password" }),
+  PORT: port({ devDefault: 8081, desc: "Application Port for listening requests." }),
 });
